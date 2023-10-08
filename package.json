@@ -1,0 +1,29 @@
+{
+  "name": "mvpkg",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "esno ./src/cli.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fast-glob": "^3.3.1",
+    "picocolors": "^1.0.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@types/fs-extra": "^11.0.2",
+    "@types/node": "^20.8.3",
+    "@types/yargs": "^17.0.28",
+    "esno": "^0.17.0",
+    "fs-extra": "^11.1.1",
+    "taze": "^0.11.3",
+    "yargs": "^17.7.2"
+  }
+}

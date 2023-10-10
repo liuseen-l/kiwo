@@ -5,15 +5,10 @@ import type { Argv } from 'yargs'
 
 function commonOptions(args: Argv<object>) {
   return args
-    .option('move', {
-      alias: 'm',
+    .option('devDependencies', {
+      alias: ['D', 'd'],
       type: 'boolean',
-      describe: 'move dependencies',
-    })
-    .option('remove', {
-      alias: 'r',
-      type: 'boolean',
-      describe: 'remove dependencies',
+      describe: 'choose dependencies environment',
     })
 }
 
@@ -32,10 +27,12 @@ yargs(hideBin(process.argv))
         .positional('mode', {
           type: 'string',
           describe: 'the mode how version range resolves, can be "remove","move"',
+          default: 'move',
           choices: ['remove', 'move']
         })
     },
     async (args) => {
+      console.log(args);
       await resolveConfig(args)
     })
   .alias('h', 'help')

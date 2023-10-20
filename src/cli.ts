@@ -8,6 +8,7 @@ function commonOptions(args: Argv<object>) {
     .option('devDependencies', {
       alias: ['D', 'd'],
       type: 'boolean',
+      default: false,
       describe: 'choose dependencies environment',
     })
 }
@@ -17,7 +18,7 @@ function commonOptions(args: Argv<object>) {
 // 2. mkpkg -*
 // 3. mkpkg 
 yargs(hideBin(process.argv))
-  .scriptName("mvpkg")
+  .scriptName("pmm")
   .usage('$0 [args]')
   .command(
     '* [mode]',
@@ -27,12 +28,11 @@ yargs(hideBin(process.argv))
         .positional('mode', {
           type: 'string',
           describe: 'the mode how version range resolves, can be "remove","move"',
-          default: 'move',
+          default: 'remove',
           choices: ['remove', 'move']
         })
     },
     async (args) => {
-      console.log(args);
       await resolveConfig(args)
     })
   .alias('h', 'help')
@@ -41,4 +41,4 @@ yargs(hideBin(process.argv))
   .help()
   .argv
 
-
+// 默认remove dev依赖 

@@ -1,3 +1,4 @@
+import { Agent } from "@antfu/ni"
 
 export interface CommonOptions {
   recursive?: boolean
@@ -10,4 +11,13 @@ export interface CommonOptions {
   failOnOutdated?: boolean
   silent?: boolean
   force?: boolean
+}
+
+export interface TypePkgMeta {
+  devDependencies: Record<string, string>;
+  dependencies: Record<string, string>;
+}
+
+export interface TypeAgent {
+  agent: Agent 
 }

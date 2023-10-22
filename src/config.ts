@@ -1,11 +1,17 @@
-import { resolveRemove } from './commands/remove';
+import { resolveMove, resolveRemove } from './commands';
+
 
 // 处理配置
 export async function resolveConfig(options: any): Promise<void> {
   // remove
   const isDev = options.D || options.d || options.devDependencies || false
+  if (options.mode === 'move') {
+    resolveMove(isDev)
+    return
+  }
+
   if (options.mode === 'remove') {
-    resolveRemove(isDev)
+    resolveRemove()
     return
   }
 }

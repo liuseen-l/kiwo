@@ -5,7 +5,7 @@ import type { Argv } from 'yargs'
 
 function commonOptions(args: Argv<object>) {
   return args
-    .option('devDependencies', {
+    .option('dev', {
       alias: ['D', 'd'],
       type: 'boolean',
       default: false,
@@ -14,7 +14,7 @@ function commonOptions(args: Argv<object>) {
 }
 
 // match 
-// 1. mkpkg * remove|move * 
+// 1. mkpkg * [mode] * 
 // 2. mkpkg -*
 // 3. mkpkg 
 yargs(hideBin(process.argv))
@@ -22,14 +22,14 @@ yargs(hideBin(process.argv))
   .usage('$0 [args]')
   .command(
     '* [mode]',
-    'welcome mvpkg!',
+    'welcome to pmm!',
     (yargs) => {
       return commonOptions(yargs)
         .positional('mode', {
           type: 'string',
-          describe: 'the mode how version range resolves, can be "remove","move"',
-          default: 'remove',
-          choices: ['remove', 'move']
+          describe: 'the mode how version range resolves, can be "remove","move",""show"',
+          default: 'move',
+          choices: ['remove', 'move',]
         })
     },
     async (args) => {

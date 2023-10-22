@@ -2,8 +2,8 @@ import fs from 'fs-extra'
 import fg from 'fast-glob'
 import { resolve } from 'node:path'
 import { NPM_LOCK, PNPM_LOCK, YARN_LOCK, pkgRoot } from './constants';
-import { Agent, parseNi } from '@antfu/ni';
-import { TypeAgent, TypePkgMeta } from './types';
+import { Agent, parseNi, parseNun } from '@antfu/ni';
+import { COMMAND_TYPE, TypeAgent, TypeCommand, TypeCommonPkgMeta, TypePkgMeta } from './types';
 
 // 获取当前项目的依赖
 export async function getPackages() {
@@ -56,17 +56,30 @@ export async function resolvePackages() {
     dev: Object.keys(devDependencies).map(i => ({ message: i, name: `${i}:${devDependencies[i]}`, value: devDependencies[i] })),
     prd: Object.keys(dependencies).map(i => ({ message: i, name: `${i}:${dependencies[i]}`, value: dependencies[i] }))
   }
-
   return pkgMeta
 }
 
+export function getCommandFn(agent: Agent, arg: string[], options: TypeCommand) {
+  const { type } = options
+  let fn
+  switch (type) {
+    case COMMAND_TYPE.I:
+      fn = parseNi(agent, arg); break
+    case COMMAND_TYPE.U:
+      fn = parseNun(agent, arg); break
+  }
 
-export async function getCommand(agent: Agent, arg: string[]) {
-  return parseNi(agent, arg)
+  return fn
 }
 
-
 // [包名:版本号] => [包名@版本号]
-export function getCommonPkgNames(pkgList: string[]) {
-  return pkgList.map(p => (p.split(':').join('@')))
+export function getCommonPkgMeta(pkgList: string[]): TypeCommonPkgMeta[] {
+  return pkgList.map(i => {
+    const p = i.split(':')
+    return {
+      name: p[0],
+      version: p[1],
+      message: p.join("@")
+    }
+  })
 }

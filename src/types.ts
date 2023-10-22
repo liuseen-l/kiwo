@@ -21,3 +21,18 @@ export interface TypePkgMeta {
 export interface TypeAgent {
   agent: Agent 
 }
+
+export enum COMMAND_TYPE {
+  I = 'install',
+  U = 'uninstall'
+}
+
+export interface TypeCommand {
+  type: COMMAND_TYPE
+}
+
+export interface TypeCommonPkgMeta {
+  name: string
+  version: string
+  message: string
+}

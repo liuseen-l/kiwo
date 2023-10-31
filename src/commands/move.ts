@@ -5,6 +5,7 @@ import { Agent } from '@antfu/ni';
 import { COMMAND_TYPE, TypeCommonPkgMeta } from '../types';
 
 async function getMoveCommand(agent: Agent, pkgNames: TypeCommonPkgMeta[], isDev: boolean) {
+  // 如果移动生产依赖得先卸载在安装，开发依赖直接安装就可以移动
   const commands = [
     ...(isDev ? [getCommandFn(agent, [...pkgNames.map(i => i.name)], { type: COMMAND_TYPE.U })] : []),
     getCommandFn(agent, [...pkgNames.map(i => i.message), ...(!isDev ? ['-D'] : [])], { type: COMMAND_TYPE.I })]
@@ -14,14 +15,13 @@ async function getMoveCommand(agent: Agent, pkgNames: TypeCommonPkgMeta[], isDev
 export async function resolveMove(isDev: boolean) {
   const pkgMeta = await resolvePackages()
   const { agent } = await getPkgManager()
-  
   enquirer
     .prompt([
       {
         type: "multiselect",
         name: "move",
         message: isDev ? '请选择以下dev依赖移动至prd依赖' : '请选择以下prd依赖移动至dev依赖',
-        initial: 0,
+        initial: -1,
         choices: isDev ? pkgMeta.dev : pkgMeta.prd
       },
     ]).then(async (earlyAnswers) => {
@@ -40,5 +40,7 @@ export async function resolveMove(isDev: boolean) {
           stdio: 'inherit'
         })
       }
+    }).catch(e => {
+      console.log(e);
     })
 }

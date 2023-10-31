@@ -42,3 +42,7 @@ yargs(hideBin(process.argv))
   .argv
 
 // 默认remove dev依赖 
+process.on('SIGINT', function () {
+  console.log('Exit now!');
+  process.exit();
+});

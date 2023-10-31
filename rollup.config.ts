@@ -1,8 +1,11 @@
 import path from 'node:path'
-import { defineConfig } from 'rollup'
+import { RollupOptions, defineConfig } from 'rollup'
 import typescript from '@rollup/plugin-typescript'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs';
+import { fileURLToPath } from 'node:url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(() => {
   const manualChunks = {
@@ -31,5 +34,5 @@ export default defineConfig(() => {
     ],
     external: ['fs-extra', 'fast-glob', 'yargs'],
     plugins: [typescript(), nodeResolve(), commonjs()],
-  }
+  } as RollupOptions
 }) 

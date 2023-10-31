@@ -1,4 +1,4 @@
-import { resolveMove, resolveRemove } from './commands';
+import { resolveMove, } from './commands';
 
 
 // 处理配置
@@ -7,11 +7,6 @@ export async function resolveConfig(options: any): Promise<void> {
   const isDev = options.D || options.d || options.devDependencies || false
   if (options.mode === 'move') {
     resolveMove(isDev)
-    return
-  }
-
-  if (options.mode === 'remove') {
-    resolveRemove()
     return
   }
 }

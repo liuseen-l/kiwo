@@ -7,7 +7,7 @@
   "module": "dist/es/index.mjs",
   "scripts": {
     "dev": "esno ./src/cli.ts",
-    "build": "rollup -c rollup.config.ts --configPlugin typescript --bundleConfigAsCjs"
+    "build": "rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "@types/cli-progress": "^3.11.4",
     "@types/fs-extra": "^11.0.2",
     "@types/node": "^20.8.3",
+    "@types/yargs": "^17.0.29",
     "eslint": "^8.51.0",
     "esno": "^0.17.0",
     "execa": "^8.0.1",
@@ -30,7 +31,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "1.0.0-beta.27",
-    "@types/yargs": "^17.0.28",
     "cli-progress": "^3.12.0",
     "enquirer": "^2.4.1",
     "picocolors": "^1.0.0",

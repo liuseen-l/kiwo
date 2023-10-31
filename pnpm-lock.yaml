@@ -29,6 +29,9 @@ dependencies:
   '@types/node':
     specifier: ^20.8.3
     version: 20.8.7
+  '@types/yargs':
+    specifier: ^17.0.29
+    version: 17.0.29
   eslint:
     specifier: ^8.51.0
     version: 8.52.0
@@ -52,9 +55,6 @@ devDependencies:
   '@antfu/eslint-config':
     specifier: 1.0.0-beta.27
     version: 1.0.0-beta.27(eslint@8.52.0)(typescript@5.2.2)(vitest@0.34.6)
-  '@types/yargs':
-    specifier: ^17.0.28
-    version: 17.0.29
   cli-progress:
     specifier: ^3.12.0
     version: 3.12.0
@@ -918,13 +918,13 @@ packages:
 
   /@types/yargs-parser@21.0.2:
     resolution: {integrity: sha512-5qcvofLPbfjmBfKaLfj/+f+Sbd6pN4zl7w7VSVI5uz7m9QZTuB2aZAa2uo1wHFBNN2x6g/SoTkXmd8mQnQF2Cw==}
-    dev: true
+    dev: false
 
   /@types/yargs@17.0.29:
     resolution: {integrity: sha512-nacjqA3ee9zRF/++a3FUY1suHTFKZeHba2n8WeDw9cCVdmzmHpIxyzOJBcpHvvEmS8E9KqWlSnWHUkOrkhWcvA==}
     dependencies:
       '@types/yargs-parser': 21.0.2
-    dev: true
+    dev: false
 
   /@typescript-eslint/eslint-plugin@6.8.0(@typescript-eslint/parser@6.8.0)(eslint@8.52.0)(typescript@5.2.2):
     resolution: {integrity: sha512-GosF4238Tkes2SHPQ1i8f6rMtG6zlKwMEB0abqSJ3Npvos+doIlc/ATG+vX1G9coDF3Ex78zM3heXHLyWEwLUw==}

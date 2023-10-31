@@ -13,8 +13,9 @@ async function getMoveCommand(agent: Agent, pkgNames: TypeCommonPkgMeta[], isDev
 }
 
 export async function resolveMove(isDev: boolean) {
-  const pkgMeta = await resolvePackages()
   const { agent } = await getPkgManager()
+
+  const pkgMeta = await resolvePackages()
   enquirer
     .prompt([
       {
@@ -26,9 +27,15 @@ export async function resolveMove(isDev: boolean) {
       },
     ]).then(async (earlyAnswers) => {
       const { move } = (earlyAnswers as { move: string[] })
+
+      if (move.length <= 0) {
+        return
+      }
+      
       const pkgNames = getCommonPkgMeta(move)
       const commands = await getMoveCommand(agent, pkgNames, isDev)
       const { execaCommand } = await import('execa')
+      console.log(commands);
 
       for await (const c of commands) {
         await execaCommand(c!, {
@@ -43,4 +50,9 @@ export async function resolveMove(isDev: boolean) {
     }).catch(e => {
       console.log(e);
     })
+}
+
+
+export function resolveMonorepo() {
+
 }

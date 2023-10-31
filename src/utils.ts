@@ -4,6 +4,7 @@ import { resolve } from 'node:path'
 import { NPM_LOCK, PNPM_LOCK, YARN_LOCK, pkgRoot } from './constants';
 import { Agent, parseNi, parseNun } from '@antfu/ni';
 import { COMMAND_TYPE, TypeAgent, TypeCommand, TypeCommonPkgMeta, TypePkgMeta } from './types';
+import exp from 'node:constants';
 
 // 获取当前项目的依赖
 export async function getPackages() {
@@ -15,8 +16,7 @@ export async function getPackages() {
   } as TypePkgMeta
 };
 
-// 处理当前项目的包管理器
-export async function getPkgManager(): Promise<TypeAgent> {
+export async function getAgent(): Promise<TypeAgent> {
   const pkgManager = fg
     .sync('*.yaml', {
       cwd: resolve(pkgRoot),
@@ -44,6 +44,22 @@ export async function getPkgManager(): Promise<TypeAgent> {
 
   return {
     agent: 'npm'
+  }
+}
+
+export async function checkRepo(): Promise<boolean> {
+  return false
+}
+
+// 处理当前项目的包管理器
+export async function getPkgManager(): Promise<TypeAgent & { isMonorepo: boolean }> {
+  const pkgAgent = await getAgent()
+  console.log(pkgAgent);
+
+  const isMonorepo = await checkRepo()
+  return {
+    ...pkgAgent,
+    isMonorepo
   }
 }
 

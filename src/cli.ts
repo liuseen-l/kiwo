@@ -10,6 +10,15 @@ function commonOptions(args: Argv<object>) {
       type: 'boolean',
       default: false,
       describe: 'choose dependencies environment',
+    }).option('cwd', {
+      alias: 'C',
+      default: '',
+      type: 'string',
+      describe: 'specify the current working directory',
+    }).option('recursive', {
+      alias: 'r',
+      type: 'boolean',
+      describe: 'recursively search for package.json in subdirectories',
     })
 }
 

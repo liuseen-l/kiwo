@@ -36,3 +36,10 @@ export interface TypeCommonPkgMeta {
   version: string
   message: string
 }
+
+export type DepType = 'dependencies' | 'devDependencies' | 'peerDependencies' | 'optionalDependencies' | 'packageManager'
+export interface RawDep {
+  name: string
+  currentVersion: string
+  source: DepType
+}

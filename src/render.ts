@@ -7,8 +7,6 @@ export const FIG_POINTER = c.cyan('❯ ')
 export const FIG_NO_POINTER = '  '
 export const FIG_BLOCK = c.bold(c.dim(c.gray('┃')))
 
-
-
 export function createMultiProgressBar() {
   return new MultiBar({
     clearOnComplete: true,

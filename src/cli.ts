@@ -1,7 +1,7 @@
-import yargs from 'yargs';
+import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { resolveConfig } from './config';
 import type { Argv } from 'yargs'
+import { resolveConfig } from './config'
 
 function commonOptions(args: Argv<object>) {
   return args
@@ -22,12 +22,12 @@ function commonOptions(args: Argv<object>) {
     })
 }
 
-// match 
-// 1. mkpkg * [mode] * 
+// match
+// 1. mkpkg * [mode] *
 // 2. mkpkg -*
-// 3. mkpkg 
+// 3. mkpkg
 yargs(hideBin(process.argv))
-  .scriptName("pmm")
+  .scriptName('pmm')
   .usage('$0 [args]')
   .command(
     '* [mode]',
@@ -38,7 +38,7 @@ yargs(hideBin(process.argv))
           type: 'string',
           describe: 'the mode how version range resolves, can be "remove","move",""show"',
           default: 'move',
-          choices: ['remove', 'move',]
+          choices: ['remove', 'move'],
         })
     },
     async (args) => {
@@ -49,9 +49,3 @@ yargs(hideBin(process.argv))
   .alias('v', 'version')
   .help()
   .argv
-
-// 默认remove dev依赖 
-process.on('SIGINT', function () {
-  console.log('Exit now!');
-  process.exit();
-});

@@ -1,5 +1,5 @@
-import { resolveMove, } from './commands';
-import { loadPackages } from './io/packages';
+import { resolveMove } from './commands'
+import { loadPackages } from './io/packages'
 
 // 处理配置
 export async function resolveConfig(options: any): Promise<void> {
@@ -8,12 +8,11 @@ export async function resolveConfig(options: any): Promise<void> {
   if (options.mode === 'move') {
     resolveMove({
       ...options,
-      isDev
+      isDev,
     })
     return
   }
 
-  if (options.mode === 'remove') {
+  if (options.mode === 'remove')
     loadPackages(options)
-  }
 }

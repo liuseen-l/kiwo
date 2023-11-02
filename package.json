@@ -1,26 +1,25 @@
 {
   "name": "pmm",
+  "type": "module",
   "version": "0.0.1",
   "description": "package.json module manager",
-  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "dist/cjs/index.cjs",
   "module": "dist/es/index.mjs",
   "scripts": {
     "dev": "esno ./src/cli.ts",
     "build": "rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@antfu/ni": "^0.21.8",
-    "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/cli-progress": "^3.11.4",
     "@types/fs-extra": "^11.0.2",
     "@types/node": "^20.8.3",
     "@types/yargs": "^17.0.29",
-    "eslint": "^8.51.0",
+    "eslint": "^8.52.0",
     "esno": "^0.17.0",
     "execa": "^8.0.1",
     "fast-glob": "^3.3.1",
@@ -28,9 +27,10 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "1.0.0-beta.27",
+    "@antfu/eslint-config": "0.39.8",
     "@changesets/cli": "^2.26.2",
     "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "cli-progress": "^3.12.0",
     "enquirer": "^2.4.1",
     "picocolors": "^1.0.0",

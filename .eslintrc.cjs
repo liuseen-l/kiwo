@@ -1,3 +1,8 @@
-const antfu = require('@antfu/eslint-config').default
-
-module.exports = antfu()
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    node: true,
+  },
+  extends: ['@antfu'],
+}

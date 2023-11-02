@@ -1,18 +1,16 @@
-import fg from 'fast-glob'
-import fs from 'fs-extra'
 import path from 'node:path'
-import { parseDependencies, parseDependency } from './dependencies'
+import fs from 'fs-extra'
+import fg from 'fast-glob'
+import { parseDependencies } from './dependencies'
 
 export async function loadPackage(relative: string, options: any): Promise<any> {
   const filepath = path.resolve(options.cwd, relative)
-
   const raw = await fs.readJSON(filepath)
-  let deps
 
-  deps = {
-    prd: parseDependencies(raw, 'dependencies',),
-    dev: parseDependencies(raw, 'devDependencies',),
-    op: parseDependencies(raw, 'optionalDependencies',),
+  const deps = {
+    prd: parseDependencies(raw, 'dependencies'),
+    dev: parseDependencies(raw, 'devDependencies'),
+    op: parseDependencies(raw, 'optionalDependencies'),
   }
 
   // if (raw.packageManager) {

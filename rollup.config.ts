@@ -1,15 +1,16 @@
 import path from 'node:path'
-import { RollupOptions, defineConfig } from 'rollup'
+import { fileURLToPath } from 'node:url'
+import type { RollupOptions } from 'rollup'
+import { defineConfig } from 'rollup'
 import typescript from '@rollup/plugin-typescript'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs';
-import { fileURLToPath } from 'node:url'
+import commonjs from '@rollup/plugin-commonjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(() => {
   const manualChunks = {
-    'enquirer': ['enquirer'],
+    enquirer: ['enquirer'],
   }
   const chunkFileNames = () => {
     return '[name]-[hash]-pmm.js'
@@ -22,17 +23,17 @@ export default defineConfig(() => {
         format: 'es',
         entryFileNames: 'index.mjs',
         manualChunks,
-        chunkFileNames
+        chunkFileNames,
       },
       {
         dir: path.resolve(__dirname, 'dist/cjs'),
         format: 'cjs',
         entryFileNames: 'index.cjs',
         manualChunks,
-        chunkFileNames
+        chunkFileNames,
       },
     ],
     external: ['fs-extra', 'fast-glob', 'yargs'],
     plugins: [typescript(), nodeResolve(), commonjs()],
   } as RollupOptions
-}) 
+})

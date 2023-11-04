@@ -52,7 +52,6 @@ export async function loadPackages(options: any) {
       relative => loadPackage(relative, options),
     ),
   )
-  // console.log(packages);
 
   return packages
 }

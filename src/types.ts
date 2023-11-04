@@ -43,3 +43,41 @@ export interface RawDep {
   currentVersion: string
   source: DepType
 }
+
+export interface RawDeps {
+  prd: RawDep[]
+  dev: RawDep[]
+  op: RawDep[]
+}
+
+export interface PackageMeta {
+  /**
+   * Package name
+   */
+  name: string
+  /**
+   * Package version
+   */
+  version: string
+  /**
+   * Absolute filepath
+   */
+  filepath: string
+  /**
+   * Relative filepath to the root project
+   */
+  relative: string
+  /**
+   * Raw package.json Object
+   */
+  raw: Record<string, any>
+  /**
+   * Dependencies
+   */
+  deps: RawDeps
+  /**
+   * Resolved dependencies
+   */
+  resolved: any[]
+  interactiveChecked?: boolean
+}

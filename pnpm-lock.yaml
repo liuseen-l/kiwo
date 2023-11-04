@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@antfu/ni':
-    specifier: ^0.21.8
-    version: 0.21.8
   '@rollup/plugin-typescript':
     specifier: ^11.1.5
     version: 11.1.5(rollup@4.1.4)(tslib@2.6.2)(typescript@5.2.2)
@@ -46,6 +43,9 @@ devDependencies:
   '@antfu/eslint-config':
     specifier: 0.39.8
     version: 0.39.8(eslint@8.52.0)(typescript@5.2.2)
+  '@antfu/ni':
+    specifier: ^0.21.8
+    version: 0.21.8
   '@changesets/cli':
     specifier: ^2.26.2
     version: 2.26.2
@@ -182,7 +182,7 @@ packages:
   /@antfu/ni@0.21.8:
     resolution: {integrity: sha512-90X8pU2szlvw0AJo9EZMbYc2eQKkmO7mAdC4tD4r5co2Mm56MT37MIG8EyB7p4WRheuzGxuLDxJ63mF6+Zajiw==}
     hasBin: true
-    dev: false
+    dev: true
 
   /@babel/code-frame@7.22.13:
     resolution: {integrity: sha512-XktuhWlJ5g+3TJXc5upd9Ks1HutSArik6jf2eAjYFyIOf4ej3RN+184cZbzDvbPnuTJIUhPKKJE3cIsYTiAT3w==}

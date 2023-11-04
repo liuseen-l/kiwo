@@ -1,11 +1,11 @@
+import { dirname } from 'node:path'
 import enquirer from 'enquirer'
 import type { Agent } from '@antfu/ni'
+import { getAgent } from '../io/agent'
 import { getCommandFn, getCommonPkgMeta } from '../utils'
-import { pkgRoot } from '../constants'
+import { loadPackages } from '../io/packages'
 import type { TypeCommonPkgMeta } from '../types'
 import { COMMAND_TYPE } from '../types'
-import { getAgent } from '../io/agent'
-import { loadPackages } from '../io/packages'
 
 async function getMoveCommand(agent: Agent, pkgNames: TypeCommonPkgMeta[], isDev: boolean) {
   // 如果移动生产依赖得先卸载在安装，开发依赖直接安装就可以移动
@@ -73,7 +73,7 @@ async function chooseDependent(pkgMeta: any, options: any) {
 
       for await (const c of commands) {
         await execaCommand(c!, {
-          cwd: pkgRoot,
+          cwd: dirname(pkgMeta.relative),
           env: {
             COLORS: 'true',
             FORCE_COLOR: 'true',

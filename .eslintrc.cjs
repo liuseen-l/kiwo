@@ -5,4 +5,7 @@ module.exports = {
     node: true,
   },
   extends: ['@antfu'],
+  rules: {
+    'no-console': 'off',
+  },
 }

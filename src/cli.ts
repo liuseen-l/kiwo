@@ -1,3 +1,4 @@
+import process from 'node:process'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import type { Argv } from 'yargs'
@@ -26,6 +27,7 @@ function commonOptions(args: Argv<object>) {
 // 1. mkpkg * [mode] *
 // 2. mkpkg -*
 // 3. mkpkg
+// eslint-disable-next-line no-unused-expressions
 yargs(hideBin(process.argv))
   .scriptName('pmm')
   .usage('$0 [args]')

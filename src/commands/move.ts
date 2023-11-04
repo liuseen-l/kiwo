@@ -34,10 +34,10 @@ async function choosePkg(options: any) {
       },
     ])
     const { move } = (earlyAnswers as { move: string })
+    console.clear()
     return packages.find(i => i.name === move)
   }
-  catch (error) {
-
+  catch (e) {
   }
 }
 
@@ -82,7 +82,6 @@ async function chooseDependent(pkgMeta: any, options: any) {
         })
       }
     }).catch((e) => {
-      console.log(e)
     })
 }
 

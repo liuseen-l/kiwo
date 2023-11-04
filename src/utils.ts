@@ -12,9 +12,11 @@ export function getCommandFn(agent: Agent, arg: string[], options: TypeCommand) 
   let fn
   switch (type) {
     case COMMAND_TYPE.I:
-      fn = parseNi(agent, arg); break
+      fn = parseNi(agent, arg)
+      break
     case COMMAND_TYPE.U:
-      fn = parseNun(agent, arg); break
+      fn = parseNun(agent, arg)
+      break
   }
 
   return fn

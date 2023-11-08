@@ -8,6 +8,9 @@
   "keywords": [],
   "main": "dist/cjs/index.cjs",
   "module": "dist/es/index.mjs",
+  "bin": {
+    "pmm": "bin/pmm.mjs"
+  },
   "scripts": {
     "dev": "esno ./src/cli.ts",
     "build": "rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript"

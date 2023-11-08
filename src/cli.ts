@@ -23,14 +23,10 @@ function commonOptions(args: Argv<object>) {
     })
 }
 
-// match
-// 1. mkpkg * [mode] *
-// 2. mkpkg -*
-// 3. mkpkg
 // eslint-disable-next-line no-unused-expressions
 yargs(hideBin(process.argv))
   .scriptName('pmm')
-  .usage('$0 [args]')
+  .usage('Usage: $0 [command] <options>')
   .command(
     '* [mode]',
     'welcome to pmm!',
@@ -38,16 +34,17 @@ yargs(hideBin(process.argv))
       return commonOptions(yargs)
         .positional('mode', {
           type: 'string',
-          describe: 'the mode how version range resolves, can be "remove","move",""show"',
+          describe: 'the mode how version range resolves, can be "move"',
           default: 'move',
-          choices: ['remove', 'move'],
+          choices: ['move'],
         })
     },
     async (args) => {
       await resolveConfig(args)
     })
-  .alias('h', 'help')
+  .alias('h', 'help') // global option alias
   .version('version', '1.0.1')
   .alias('v', 'version')
   .help()
+  .strict()
   .argv

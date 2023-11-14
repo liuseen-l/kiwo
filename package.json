@@ -64,6 +64,7 @@
     "eslint": "^8.52.0",
     "esno": "^0.17.0",
     "lint-staged": "^15.1.0",
+    "pmm": "workspace:^",
     "rimraf": "^5.0.5",
     "rollup": "^4.1.4",
     "rollup-plugin-dts": "^6.1.0",

@@ -9,9 +9,9 @@ import commonjs from '@rollup/plugin-commonjs'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig(() => {
-  const manualChunks = {
-    enquirer: ['enquirer'],
-  }
+  // const manualChunks = {
+  //   enquirer: ['enquirer'],
+  // }
   const chunkFileNames = () => {
     return '[name]-[hash]-pmm.js'
   }
@@ -22,18 +22,12 @@ export default defineConfig(() => {
         dir: path.resolve(__dirname, 'dist/es'),
         format: 'es',
         entryFileNames: 'index.mjs',
-        manualChunks,
+        // manualChunks,
         chunkFileNames,
       },
-      {
-        dir: path.resolve(__dirname, 'dist/cjs'),
-        format: 'cjs',
-        entryFileNames: 'index.cjs',
-        manualChunks,
-        chunkFileNames,
-      },
+
     ],
-    external: ['fs-extra', 'fast-glob', 'yargs'],
+    external: ['fs-extra', 'fast-glob', 'yargs', 'enquirer', 'picocolors'],
     plugins: [typescript(), nodeResolve(), commonjs()],
   } as RollupOptions
 })

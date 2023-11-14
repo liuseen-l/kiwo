@@ -1,12 +1,32 @@
 {
   "name": "pmm",
   "type": "module",
-  "version": "0.0.2-beta.0",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@8.8.0",
   "description": "package.json module manager",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
-  "main": "dist/cjs/index.cjs",
+  "author": "liuseen-l",
+  "license": "MIT",
+  "homepage": "https://github.com/liuseen-l/pmm#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuseen-l/pmm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liuseen-l/pmm/issues"
+  },
+  "keywords": [
+    "package.json",
+    "module",
+    "manager"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs"
+    },
+    "./*": "./*"
+  },
+  "main": "dist/es/index.mjs",
   "module": "dist/es/index.mjs",
   "bin": {
     "pmm": "bin/pmm.mjs"
@@ -18,7 +38,8 @@
     "dev": "esno ./src/cli.ts",
     "build": "pnpm run clean && rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "clean": "rimraf dist",
-    "release": "bumpp -r"
+    "release": "bumpp -r",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -31,7 +52,9 @@
     "execa": "^8.0.1",
     "fast-glob": "^3.3.1",
     "fs-extra": "^11.1.1",
+    "lint-staged": "^15.1.0",
     "rimraf": "^5.0.5",
+    "simple-git-hooks": "^2.9.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
@@ -48,5 +71,11 @@
     "rollup-plugin-dts": "^6.1.0",
     "tslib": "^2.6.2",
     "yargs": "^17.7.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

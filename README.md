@@ -7,7 +7,17 @@
 
 <pre align="center">npx pmm <b>-r</b></pre>
 
-## Usage
+
+## 📦 Installation
+
+```
+# pmm 
+
+pnpm install pmm -D
+
+```
+
+## 🦄 Usage
 
 By default, `npx pmm` or `npx pmm move` only scans the `package.json` of the current command execution path 
 <br>
@@ -28,7 +38,7 @@ to the devdependencies
 <img src='./screenshots/move.png' width='400'/>
 </p>
 
-The `-D` or `-d` option can move devdependencies to dependencies 
+The `-D` or `-d` option can choose move devdependencies to dependencies 
 <br>
 <p align='center'>
 <img src='./screenshots/move-d.png' width='400'/>

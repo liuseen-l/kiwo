@@ -21,15 +21,16 @@ The `-R` or `-r` option can scan packages in the current command execution path 
 <img src='./screenshots/move-r.png' width='600'/>
 </p>
 
-Default move dependencies to devdependencies
+Once we have selected the package we want to work on, we can choose how to move the dependencies, which by default is to move the dependencies 
+to the devdependencies
 <br>
 <p align='center'>
-<img src='./screenshots/move.png' width='600'/>
+<img src='./screenshots/move.png' width='400'/>
 </p>
 
 The `-D` or `-d` option can move devdependencies to dependencies 
 <br>
 <p align='center'>
-<img src='./screenshots/move-d.png' width='600'/>
+<img src='./screenshots/move-d.png' width='400'/>
 </p>
 

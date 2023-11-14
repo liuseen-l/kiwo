@@ -13,7 +13,7 @@ export default defineConfig(() => {
   //   enquirer: ['enquirer'],
   // }
   const chunkFileNames = () => {
-    return '[name]-[hash]-pmm.js'
+    return '[name]-[hash]-kiwo.js'
   }
   return {
     input: './src/cli.ts',

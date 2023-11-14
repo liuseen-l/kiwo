@@ -1,26 +1,26 @@
-<h1 align="center">⛄ Pmm</h1>
+<h1 align="center">⛄ Kiwo</h1>
 <p align="center">A package.json module manager</p>
 
-<pre align="center">npx <b>pmm</b></pre>
+<pre align="center">npx <b>kiwo</b></pre>
 
 <p align="center">or recursively for <b>monorepos</b></p>
 
-<pre align="center">npx pmm <b>-r</b></pre>
+<pre align="center">npx kiwo <b>-r</b></pre>
 
 
 ## 📦 Installation
 
 ```
 
-# pmm 
+# kiwo 
 
-pnpm install pmm -D
+pnpm install kiwo -D
 
 ```
 
 ## 🦄 Usage
 
-By default, `npx pmm` or `npx pmm move` only scans the `package.json` of the current command execution path 
+By default, `npx kiwo` or `npx kiwo move` only scans the `package.json` of the current command execution path 
 <br>
 <p align='center'>
 <img src='./screenshots/default.png' width='600'/>

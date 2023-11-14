@@ -66,12 +66,12 @@ importers:
       esno:
         specifier: ^0.17.0
         version: 0.17.0
+      kiwo:
+        specifier: workspace:^
+        version: 'link:'
       lint-staged:
         specifier: ^15.1.0
         version: 15.1.0
-      pmm:
-        specifier: workspace:^
-        version: 'link:'
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5

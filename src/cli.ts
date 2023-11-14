@@ -25,11 +25,11 @@ function commonOptions(args: Argv<object>) {
 
 // eslint-disable-next-line no-unused-expressions
 yargs(hideBin(process.argv))
-  .scriptName('pmm')
+  .scriptName('kiwo')
   .usage('Usage: $0 [command] <options>')
   .command(
     '* [mode]',
-    'welcome to pmm!',
+    'welcome to kiwo!',
     (yargs) => {
       return commonOptions(yargs)
         .positional('mode', {

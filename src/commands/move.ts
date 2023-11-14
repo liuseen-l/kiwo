@@ -56,7 +56,7 @@ async function chooseDependent(pkgMeta: PackageMeta, options: any) {
 
     if (!raw[type]) {
       console.log(
-        c.red('pmm-error:'),
+        c.red('kiwo-error:'),
         c.red(`There are no ${isDev ? 'devDependencies' : 'dependencies'} in the ${pkgMeta.name} project`),
       )
       return

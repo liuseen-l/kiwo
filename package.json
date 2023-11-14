@@ -1,8 +1,7 @@
 {
   "name": "pmm",
   "type": "module",
-  "version": "0.0.2-beta.1",
-  "private": true,
+  "version": "0.0.2-beta.2",
   "packageManager": "pnpm@8.8.0",
   "description": "package.json module manager",
   "author": "liuseen-l",

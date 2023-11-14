@@ -1,4 +1,4 @@
-<h1 align="center">:penguin: Pmm</h1>
+<h1 align="center">⛄ Pmm</h1>
 <p align="center">A package.json module manager</p>
 
 <pre align="center">npx <b>pmm</b></pre>

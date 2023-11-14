@@ -1,4 +1,9 @@
 <h1 align="center">⛄ Kiwo</h1>
+<p align="center">
+  <a href="https://www.npmjs.com/package/kiwo" target="_blank" rel="noopener noreferrer"><img src="https://badgen.net/npm/v/kiwo" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/package/kiwo" target="_blank" rel="noopener noreferrer"><img src="https://badgen.net/npm/dt/kiwo" alt="NPM Downloads" /></a>
+  <a href="https://www.npmjs.com/package/kiwo" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/node/v/kiwo" alt="Node Compatibility" /></a>
+</p>
 <p align="center">A package.json module manager</p>
 
 <pre align="center">npx <b>kiwo</b></pre>

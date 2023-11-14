@@ -1,18 +1,18 @@
 {
-  "name": "pmm",
+  "name": "kiwo",
   "type": "module",
-  "version": "0.0.2-beta.2",
+  "version": "0.0.1-beta.0",
   "packageManager": "pnpm@8.8.0",
   "description": "package.json module manager",
   "author": "liuseen-l",
   "license": "MIT",
-  "homepage": "https://github.com/liuseen-l/pmm#readme",
+  "homepage": "https://github.com/liuseen-l/kiwo#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/liuseen-l/pmm.git"
+    "url": "git+https://github.com/liuseen-l/kiwo.git"
   },
   "bugs": {
-    "url": "https://github.com/liuseen-l/pmm/issues"
+    "url": "https://github.com/liuseen-l/kiwo/issues"
   },
   "keywords": [
     "package.json",
@@ -28,7 +28,7 @@
   "main": "dist/es/index.mjs",
   "module": "dist/es/index.mjs",
   "bin": {
-    "pmm": "bin/pmm.mjs"
+    "kiwo": "bin/kiwo.mjs"
   },
   "files": [
     "dist"
@@ -62,8 +62,8 @@
     "enquirer": "^2.4.1",
     "eslint": "^8.52.0",
     "esno": "^0.17.0",
+    "kiwo": "workspace:^",
     "lint-staged": "^15.1.0",
-    "pmm": "workspace:^",
     "rimraf": "^5.0.5",
     "rollup": "^4.1.4",
     "rollup-plugin-dts": "^6.1.0",

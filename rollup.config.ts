@@ -27,7 +27,7 @@ export default defineConfig(() => {
       },
 
     ],
-    external: ['fs-extra', 'fast-glob', 'yargs', 'enquirer', 'picocolors'],
+    // external: ['fs-extra', 'fast-glob', 'yargs', 'enquirer', 'picocolors'],
     plugins: [typescript(), nodeResolve(), commonjs()],
   } as RollupOptions
 })
